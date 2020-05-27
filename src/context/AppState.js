@@ -30,16 +30,17 @@ const PeriodicState = (props) => {
   // Set Block
   const getBlock = async (text) => {
     const res = await axios.get("https://neelpatel05.pythonanywhere.com/")
-    const block = res.data.filter((elem) => elem.groupBlock === "metalloid")
+    const block = res.data.filter((elem) => elem.groupBlock === text)
     dispatch({ type: "SET_BLOCK", payload: block })
   }
 
   // Fetch Element
   const fetchElement = async (text) => {
     const res = await axios.get("https://neelpatel05.pythonanywhere.com/")
-    const selected = res.data.find((elem) => elem.name.toLowerCase() === text.toLowerCase())
+    const selected = (text) => res.data.find((elem) => elem.name.toLowerCase() === text.toLowerCase())
     dispatch({ type: "SET_ELEM", payload: selected })
   }
+
   return (
     <StateContext.Provider
       value={{
