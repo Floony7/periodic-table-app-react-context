@@ -1,14 +1,17 @@
 import React from "react"
-/* import StateContext from "./context/StateContext"
-import DispatchContext from "./context/DispatchContext" */
+import { PeriodicProvider } from "./context/AppState"
 import Page from "./components/Page"
-import ElementList from "./components/ElementList"
+import ElementList2 from "./components/ElementList2"
+import Filter from "./components/Filter"
 
 function App() {
   return (
-    <Page>
-      <ElementList />
-    </Page>
+    <PeriodicProvider>
+      <Page>
+        <Filter />
+        <ElementList2 />
+      </Page>
+    </PeriodicProvider>
   )
 }
 

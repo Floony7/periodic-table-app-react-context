@@ -18,6 +18,20 @@ export default (state, action) => {
         elems: action.payload,
         loading: false,
       }
+    case "FILTER_ELEMENTS":
+      return {
+        ...state,
+        filtered: state.elems.filter((elem) => {
+          const regex = new RegExp(`${action.payload}`, "gi")
+          return elem.name.match(regex) || elem.symbol.match(regex)
+        }),
+        loading: false,
+      }
+    case "CLEAR_FILTER":
+      return {
+        ...state,
+        filtered: null,
+      }
     case "SET_ELEM":
       return {
         ...state,
@@ -30,10 +44,15 @@ export default (state, action) => {
         block: action.payload,
         loading: false,
       }
+    case "SET_QUERY":
+      return {
+        ...state,
+        query: action.payload,
+      }
     case "SEARCH": {
       return {
         ...state,
-        repos: action.payload,
+        elems: action.payload,
         loading: false,
       }
     }

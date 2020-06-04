@@ -7,16 +7,17 @@ Objectives for this file:
 - Bring in Context and Reducer
 - Init state
 - useReducer
-- Set up functionality so that we can dispatch to the reducer which then changes the state (includes results of http requests)
+- Set up action functionality so that we can dispatch to the reducer which then changes the state (includes results of http requests)
 - Return Context values as set through the useReducer hook (which returns state and dispatch. The former we can use to derive current state and set it to the context value so it can be provided).
 */
 
-const PeriodicState = (props) => {
+export const PeriodicProvider = ({ children }) => {
   const initialState = {
     elems: [],
     elem: {},
     block: [],
     loading: false,
+    filtered: null,
   }
 
   const [state, dispatch] = useReducer(ElemReducer, initialState)
@@ -41,20 +42,31 @@ const PeriodicState = (props) => {
     dispatch({ type: "SET_ELEM", payload: selected })
   }
 
+  // Search filter
+  const filteredElements = (text) => {
+    dispatch({ type: "FILTER_ELEMENTS", payload: text })
+  }
+
+  const clearFilter = () => {
+    dispatch({ type: "CLEAR_FILTER" })
+  }
+
   return (
     <StateContext.Provider
       value={{
         elems: state.elems,
         elem: state.elem,
         block: state.block,
+        query: state.query,
+        filtered: state.filtered,
         fetchData,
         getBlock,
         fetchElement,
+        filteredElements,
+        clearFilter,
       }}
     >
-      {props.children}
+      {children}
     </StateContext.Provider>
   )
 }
-
-export default PeriodicState

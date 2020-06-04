@@ -9,7 +9,6 @@ const Inner = styled.div`
   padding: 1.5em;
   border-radius: 10px;
   min-height: 40vh;
-  display: flex;
-  justify-content: space-evenly;
+  overflow-x: hidden;
 `
 export default Inner
