@@ -10,6 +10,7 @@ const StyledSelect = styled.select`
   font-family: "Mitr", sans-serif;
   background-color: lightgreen;
   margin: 0 0 0 5px;
+  width: 60%;
 `
 
 const BlockFilter = (props) => {
@@ -24,21 +25,18 @@ const BlockFilter = (props) => {
   }
   return (
     <StyledSelect onChange={handleChange}>
-      <option value="" disabled>
-        Sort by Element Group Block
-      </option>
       <option value="">All elements</option>
-      <option value="nonmetal">Nonmetal</option>
-      <option value="noble gas">Noble gas</option>
-      <option value="alkaline earth metal">Alkaline Earth Metal</option>
-      <option value="metalloid">Metalloid</option>
-      <option value="alkali metal">Alkali Metal</option>
-      <option value="metal">Metal</option>
-      <option value="halogen">Halogen</option>
-      <option value="transition metal">Transition Metal</option>
-      <option value="lanthanide">Lanthanide</option>
-      <option value="post-transition metal">Post Transition</option>
-      <option value="actinoid">Actinoid</option>
+      <option value="nonmetal">Nonmetals</option>
+      <option value="noble gas">Noble gases</option>
+      <option value="alkaline earth metal">Alkaline Earth Metals</option>
+      <option value="metalloid">Metalloids</option>
+      <option value="alkali metal">Alkali Metals</option>
+      <option value="metal">Metalloids</option>
+      <option value="halogen">Halogens</option>
+      <option value="transition metal">Transition Metals</option>
+      <option value="lanthanoid">Lanthanoids</option>
+      <option value="post-transition metal">Post Transition metals</option>
+      <option value="actinoid">Actinoids</option>
     </StyledSelect>
   )
 }
