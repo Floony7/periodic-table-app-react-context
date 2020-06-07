@@ -47,8 +47,17 @@ export const PeriodicProvider = ({ children }) => {
     dispatch({ type: "FILTER_ELEMENTS", payload: text })
   }
 
+  // Clear filter
   const clearFilter = () => {
     dispatch({ type: "CLEAR_FILTER" })
+  }
+
+  // Set block
+  const setBlock = (option) => {
+    const blockFilter = state.elems.filter((el) => {
+      return el.groupBlock === option
+    })
+    dispatch({ type: "SET_BLOCK", payload: blockFilter })
   }
 
   return (
@@ -64,6 +73,7 @@ export const PeriodicProvider = ({ children }) => {
         fetchElement,
         filteredElements,
         clearFilter,
+        setBlock,
       }}
     >
       {children}

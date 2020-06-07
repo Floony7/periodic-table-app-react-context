@@ -2,6 +2,7 @@ import React, { useContext, useRef, useEffect } from "react"
 import styled from "styled-components"
 import StateContext from "../context/StateContext"
 import { SearchBar } from "../styled/SearchBar"
+import BlockFilter from "../components/BlockFilter"
 
 const FilterBar = styled.nav`
   display: flex;
@@ -22,6 +23,11 @@ const NavItem = styled.div`
   background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
+
+  &.right {
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+  }
 `
 
 const Filter = (props) => {
@@ -46,7 +52,9 @@ const Filter = (props) => {
           <SearchBar ref={text} type="text" size="25" placeholder="Find an element..." onChange={handleChange} />
         </label>
       </NavItem>
-      <NavItem>Group</NavItem>
+      <NavItem className="right">
+        <BlockFilter />
+      </NavItem>
     </FilterBar>
   )
 }

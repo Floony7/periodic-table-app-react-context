@@ -31,6 +31,7 @@ export default (state, action) => {
       return {
         ...state,
         filtered: null,
+        block: null,
       }
     case "SET_ELEM":
       return {
@@ -41,7 +42,7 @@ export default (state, action) => {
     case "SET_BLOCK":
       return {
         ...state,
-        block: action.payload,
+        filtered: action.payload,
         loading: false,
       }
     case "SET_QUERY":
