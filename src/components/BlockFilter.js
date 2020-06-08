@@ -11,6 +11,15 @@ const StyledSelect = styled.select`
   background-color: lightgreen;
   margin: 0 0 0 5px;
   width: 60%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
 `
 
 const BlockFilter = (props) => {

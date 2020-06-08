@@ -49,7 +49,7 @@ const Filter = (props) => {
     <FilterBar>
       <NavItem>
         <label htmlFor="search">
-          <SearchBar ref={text} type="text" size="25" placeholder="Find an element..." onChange={handleChange} />
+          <SearchBar ref={text} type="text" size="40" placeholder="Find an element..." onChange={handleChange} />
         </label>
       </NavItem>
       <NavItem className="right">
