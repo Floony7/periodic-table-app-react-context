@@ -24,7 +24,7 @@ export const PeriodicProvider = ({ children }) => {
 
   // Fetch Data
   const fetchData = async () => {
-    const res = await axios.get("https://neelpatel05.pythonanywhere.com/")
+    const res = await axios.get("https://periodic-table-rest-api.herokuapp.com/")
     dispatch({ type: "SET_DATA", payload: res.data })
   }
 
