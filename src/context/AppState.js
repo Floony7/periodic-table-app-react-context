@@ -26,18 +26,19 @@ export const PeriodicProvider = ({ children }) => {
   const fetchData = async () => {
     const res = await axios.get("https://periodic-table-rest-api.herokuapp.com/")
     dispatch({ type: "SET_DATA", payload: res.data })
+    console.log(res.data)
   }
 
   // Set Block
   const getBlock = async (text) => {
-    const res = await axios.get("https://neelpatel05.pythonanywhere.com/")
+    const res = await axios.get("https://periodic-table-rest-api.herokuapp.com/")
     const block = res.data.filter((elem) => elem.groupBlock === text)
     dispatch({ type: "SET_BLOCK", payload: block })
   }
 
   // Fetch Element
   const fetchElement = async (text) => {
-    const res = await axios.get("https://neelpatel05.pythonanywhere.com/")
+    const res = await axios.get("https://periodic-table-rest-api.herokuapp.com/")
     const selected = (text) => res.data.find((elem) => elem.name.toLowerCase() === text.toLowerCase())
     dispatch({ type: "SET_ELEM", payload: selected })
   }
