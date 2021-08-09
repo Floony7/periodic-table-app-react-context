@@ -5,7 +5,7 @@ import ElementCard from "./ElementCard"
 
 const List = styled.div`
   margin: 0 auto;
-  width: 90vw;
+  width: 100%;
   /* display: flex;
   justify-content: space-evenly; */
   /* flex: 1;
